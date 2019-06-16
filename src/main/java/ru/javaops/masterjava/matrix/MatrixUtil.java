@@ -19,14 +19,8 @@ public class MatrixUtil {
     public static int[][] concurrentMultiply(int[][] matrixA, int[][] matrixB, ExecutorService executor) throws InterruptedException, ExecutionException {
         final int matrixSize = matrixA.length;
         final int[][] matrixC = new int[matrixSize][matrixSize];
-
-        double[][] BT = new double[matrixSize][matrixSize];
-        for (int i = 0; i < matrixSize; i++) {
-            for (int j = 0; j < matrixSize; j++) {
-                BT[j][i] = matrixB[i][j];
-            }
-        }
-        int slices = matrixSize/50 < 1 ? 1 : matrixSize/50;
+        // для определения размера "куска" желательно знать максимальное физическое количество ядер/нитей на устройстве
+        int slices = matrixSize/250 < 1 ? 1 : matrixSize/250;
         List<Future<Integer>> futures = new ArrayList<>();
         for (int slice = 0; slice < slices; slice++ )
         {
@@ -49,16 +43,6 @@ public class MatrixUtil {
                 e.printStackTrace();
             }
         }
-
-       /* while (!futures.isEmpty())
-        {
-            Future<Integer> future = completionService.poll();
-            if (future != null) {
-                Integer res = future.get();
-                System.out.println(res);
-            }
-            futures.remove(future);
-        }*/
         return matrixC;
     }
 
