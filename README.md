@@ -29,7 +29,7 @@
 -  <a href="http://git-scm.com/downloads">Git</a>
 -  <a href="http://www.jetbrains.com/idea/download/index.html">IntelliJ IDEA</a>
 
-# Первое занятие: многопоточность.
+# [Первое занятие: многопоточность.](lessons/lesson01.md)
 
 ## ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 1. <a href="https://www.youtube.com/watch?v=whONxvrM2Fc">Вступление. Многопоточность и параллельность.</a>
 ![Concurrent vs Parallel](https://joearms.github.io/images/con_and_par.jpg)
@@ -115,7 +115,7 @@ MatrixBenchmark.concurrentMultiply3           1000    ss  100  186,827 ± 11,882
 -----
 # Программа проекта
 
-## Занятие 2
+## [Занятие 2](lessons/lesson02.md)
 - Разбор ДЗ (многопоточная реализация умножения матриц)
 - <a href="http://openjdk.java.net/projects/code-tools/jmh/">Java Microbenchmark JMH</a> (от Алексея Шипилева)
 - Формат XML. Создание схемы XSD.
