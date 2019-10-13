@@ -4,6 +4,7 @@
            targetNamespace="http://javaops.ru"
            elementFormDefault="qualified" attributeFormDefault="unqualified">
 
+
     <xs:element name="Payload">
         <xs:complexType>
             <xs:all>
@@ -11,6 +12,13 @@
                     <xs:complexType>
                         <xs:sequence minOccurs="1" maxOccurs="unbounded">
                             <xs:element ref="City"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Projects">
+                    <xs:complexType>
+                        <xs:sequence minOccurs="1" maxOccurs="unbounded">
+                            <xs:element ref="Project"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
@@ -25,14 +33,47 @@
         </xs:complexType>
     </xs:element>
 
+    <xs:element name="Project">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element type="xs:string" name="name"/>
+                <xs:element type="xs:string" name="description"/>
+                <xs:element name="Groups">
+                    <xs:complexType>
+                        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+                            <xs:element ref="Group"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="groupType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="REGISTERING"/>
+            <xs:enumeration value="CURRENT"/>
+            <xs:enumeration value="FINISHED"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="Group">
+        <xs:complexType>
+            <xs:attribute type="xs:ID" name="id" use="required"/>
+            <xs:attribute type="xs:string" name="name"/>
+            <xs:attribute type="groupType" name="type"/>
+        </xs:complexType>
+    </xs:element>
+
     <xs:element name="User">
         <xs:complexType>
             <xs:sequence>
-                <xs:element type="xs:string" name="email"/>
                 <xs:element type="xs:string" name="fullName"/>
             </xs:sequence>
+            <xs:attribute type="xs:string" name="email"/>
             <xs:attribute type="flagType" name="flag" use="required"/>
             <xs:attribute type="xs:IDREF" name="city" use="required"/>
+            <xs:attribute name="groups" type="xs:IDREFS" use="optional"/>
         </xs:complexType>
     </xs:element>
 
