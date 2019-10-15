@@ -125,7 +125,7 @@ MatrixBenchmark.concurrentMultiply3           1000    ss  100  186,827 ± 11,882
   - XPath
   - XSLT
 
-## Занятие 3
+## [Занятие 3](lessons/lesson03.md)
 - Разбор ДЗ (работа с XML)
 - [Обзор Guava](https://drive.google.com/open?id=0B9Ye2auQ_NsFeFB5a29JQ2tRNHM)
 - Монады. flatMap
